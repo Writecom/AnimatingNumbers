@@ -8,7 +8,6 @@ public class NumberCounter : MonoBehaviour
     public TextMeshProUGUI Text;
     public int CountFPS = 30;
     public float Duration = 1f;
-    public string NumberFormat = "N0";
     public int _value;
 
     //Det her er en property https://www.youtube.com/watch?v=qpbRrxaEzQE
@@ -53,12 +52,21 @@ public class NumberCounter : MonoBehaviour
     private IEnumerator CountText(int newValue)
     {
         {
-            //definerer en WaitForSeconds, med vores vaiabel CountFPS
+            //definerer en WaitForSeconds, med vores vaiabel CountFPS. Dette er beregnet til 1 frame svarende til en 1/30 af et sekund
             WaitForSeconds Wait = new WaitForSeconds(1f / CountFPS);
+            
+            //Definerer vores værdi int til en ny int kaldet sidste værdi. Det er altså den værdi der sidst stod der.
             int lastValue = _value;
+
+            //Definerer en int, der skal bestemme vores step amount, altså hvor mange tal gælder per step når den tæller
             int stepAmount;
+
+            //Definerer forskellen fra sidste værdi kontra det tal man har indtastet.
+            //I et health scenarie, ville man nok definerer som health - newHealth, og så er newHealth vurderet ud fra den dmg man har taget?
             int difference = newValue - lastValue;
 
+            //Dette if statement, definerer vores stepamount, altså hvor meget den skal lægge til eller trække fra
+            //alt efter tallet
             if (difference < 0)
 
                 //Mathf.FloorToInt(float f), returnerer den mindste integer ift float værdien

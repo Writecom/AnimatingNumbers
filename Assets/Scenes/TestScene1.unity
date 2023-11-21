@@ -586,7 +586,6 @@ MonoBehaviour:
   Text: {fileID: 384133674}
   CountFPS: 30
   Duration: 1
-  NumberFormat: N0
   _value: 0
 --- !u!1 &705507993
 GameObject:
