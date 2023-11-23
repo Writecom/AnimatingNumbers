@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class NumberCounter : MonoBehaviour
+public class NumberCounter4 : MonoBehaviour
 {
     public TextMeshProUGUI Text;
     public int CountFPS = 30;
     public float Duration = 1f;
-    public int _value;
+    public int _money;
     public int maxHealth = 100;
 
     //Det her er en property https://www.youtube.com/watch?v=qpbRrxaEzQE
@@ -17,19 +17,19 @@ public class NumberCounter : MonoBehaviour
     //Vi bruger property, så vi kan bruge vores UpdateText funktion til at definere vores værdi.
     //I andre lignende systemer, har vi sat en linje 'Text.text = int.ToString()' i vores Update method som hører med til vores MonoBehaviour class, hvor den så tjekker for hver frame efter det. 
     //Dette er f.eks. tilfældet i vores MoneyCounter
-    public int Value
+    public int Money
     {
-        //get funktionen bruges til at hente den værdi der skal ændres i, i dette tilfælde _value
+        //get funktionen bruges til at hente den værdi der skal ændres i, i dette tilfælde _money
         get
         {
-            return _value;
+            return _money;
         }
 
         //set funktionen bruges til at sætte værdien for vores property
         set
         {
             UpdateText(value);
-            _value = value;
+            _money = value;
 
         }
     }
@@ -54,19 +54,19 @@ public class NumberCounter : MonoBehaviour
         CountingCoroutine = StartCoroutine(CountText(newValue));
         */
 
-        StartCoroutine(CountText(newValue));
+        StartCoroutine(CountText4(newValue));
     }
 
     //Denne IEnumerator laves, da det skal bruge stil en Coroutine
     //Vi bruger en Coroutine, da vi gerne vil have ting til at ske over flere frames, hvilket i dette tilfælde er at animere tal der går op og ned.
-    private IEnumerator CountText(int newValue)
+    private IEnumerator CountText4(int newValue)
     {
         {
             //definerer en WaitForSeconds, med vores vaiabel CountFPS. Dette er beregnet til 1 frame svarende til en 1/30 af et sekund
             WaitForSeconds Wait = new WaitForSeconds(1f / CountFPS);
             
             //Definerer vores værdi int til en ny int kaldet sidste værdi. Det er altså den værdi der sidst stod der.
-            int lastValue = _value;
+            int lastValue = _money;
 
             //Definerer en int, der skal bestemme vores step amount, altså hvor mange tal gælder per step når den tæller
             int stepAmount;

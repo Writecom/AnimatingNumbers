@@ -22,12 +22,12 @@ public class HealthController : MonoBehaviour
         //UpdateHealthText();
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(int damage)
     {
         StartCoroutine(SmoothDecreaseHealth(damage));
     }
 
-    private IEnumerator SmoothDecreaseHealth (float damage)
+    private IEnumerator SmoothDecreaseHealth (int damage)
     {
         float damagePerTick = damage / smoothDecreaseDuration;
         float elapsedTime = 0f;

@@ -6,7 +6,7 @@ public class ButtonWithDamage : MonoBehaviour
 {
  
     public HealthController healthController;
-    public float damage = 10f;
+    public int damage = 10;
 
     public void ButtonPress()
     {
